@@ -7,6 +7,10 @@ socket.on( 'connect', () => {
     console.log( 'connected to server' );
     socket.emit('login',extension);
 });
+socket.on('reconnecting', () => {
+    location.reload();
+});
+
 
 socket.on("logged", (result) => {
     extension = result;

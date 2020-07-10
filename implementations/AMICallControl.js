@@ -3,7 +3,7 @@ const Events = require('events');
 const Logger = require('../utlis/Logger.js');
 const Validate = require('../utlis/ValidatePhoneNumber.js');
 
-var log = new Logger.ILog("amiManager");
+var log = new Logger.ILog("callControl");
 
 module.exports = class AMICallControl {
     constructor( login, password, host, port ) {

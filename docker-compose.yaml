@@ -1,13 +1,11 @@
 version: "3"
 services:
 
-
-
-
     callinker:
         image: qikcik/callinker:latest
+        network_mode: "host"
         ports:
-            - "7777:80"
+            - "7777:7777"
             - "5038:5038"
 
         restart: on-failure
@@ -16,8 +14,6 @@ services:
             - AMILOGIN=callinker
             - AMIPASSWORD=1234
             - AMIADRESS=192.168.1.2
-            - AMIPORT=5038
-            - WEBPORT=7777
         
         labels:
             - com.centurylinklabs.watchtower.enable=true
@@ -26,8 +22,7 @@ services:
         image: containrrr/watchtower
         volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - /root/.docker/config.json:/config.json
-        command: --cleanup --interval 300 --label-enable
+        command: --cleanup --interval 10 --label-enable
 
         environment:
             - REPO_USER=qikcik

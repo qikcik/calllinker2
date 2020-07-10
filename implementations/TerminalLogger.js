@@ -3,9 +3,9 @@ module.exports = function() {
     const colors = require('colors');
     
     Logger.handler.on('log', (scope, type, tittle, value) => {
-        //if( scope != 'debug')
-        //{
+        if( scope != 'debug')
+        {
             console.log(`[${scope}:${type}]`.green,` ${tittle}: `, value);
-        //}
+        }
     });
 }

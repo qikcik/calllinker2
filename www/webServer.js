@@ -31,19 +31,29 @@ module.exports = class WebServer {
     sendThatInCall(who,withWho) {
         for (let i in this._connectedClient)
             if(this._connectedClient[i].extension == who)
+            {
+                log.info("sendThatInCall",`${this._connectedClient[i].client.id}(${who}) is in call with ${withWho}`);
                 this._connectedClient[i].client.emit(`inCall`, withWho);
+                this.handler.emit("inCall",who,withWho);
+            }
     }
 
     sendOrders(who,withWho,orders) {
         for (let i in this._connectedClient)
             if(this._connectedClient[i].extension == who)
+            {
                 this._connectedClient[i].client.emit(`orders`, {extension: withWho, orders: orders});
+            }
     }
 
     sendThatHangup(who) {
         for (let i in this._connectedClient)
             if(this._connectedClient[i].extension == who)
+            {
+                log.info("sendThatHangup",`${this._connectedClient[i].client.id}(${who}) is hangup from call`);
                 this._connectedClient[i].client.emit(`hangup`,{});
+                this.handler.emit("hangup",who);
+            }
     }
 
     //////////// PRIVATE

@@ -1,6 +1,6 @@
 
 module.exports = {
-    webPort: 80,
+    webPort: 7777,
     baselinkerApi: process.env.BASELINKERAPI,
     AmiLogin: process.env.AMILOGIN,
     AmiPassword: process.env.AMIPASSWORD,

@@ -1,4 +1,4 @@
-const Config = require('./configDocker.js');
+const Config = require('./config.js');
 const Logger = require('./utlis/Logger.js');
 
 // ignore uncaughtException
@@ -24,16 +24,21 @@ let baseLinker = new BaseLinker(Config.baselinkerApi);
 callControl.handler.on("inCall", (first,second)=>{
     webServer.sendThatInCall(first,second);
     webServer.sendThatInCall(second,first);
-
-    baseLinker.getOrdersByExtension(first).then ( res => { webServer.sendOrders(second,first,res) } );
-    baseLinker.getOrdersByExtension(second).then ( res => { webServer.sendOrders(first,second,res) } );
 } );
+
 callControl.handler.on("hangup", (first)=>{ 
     webServer.sendThatHangup(first);
 } );
 
 webServer.handler.on("logged",extension=>{
     callControl.resentForExtension(extension);
-})
+});
+
+webServer.handler.on("inCall",(who,withWho)=>{
+    baseLinker.getOrdersByExtension(withWho)
+        .then ( res => { webServer.sendOrders(who,withWho,res) } );
+});
+
+
 
 ///setInterval(()=> console.log(callControl._bridges),1000);
