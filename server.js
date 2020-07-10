@@ -1,3 +1,4 @@
+const Config = require('./config.js');
 const Logger = require('./utlis/Logger.js');
 
 // ignore uncaughtException
@@ -13,12 +14,12 @@ require('./implementations/TerminalLogger.js')();
 const AMIActiveConnections = require('./implementations/AMICallControl.js');
 const WebServer = require('./www/webServer.js');
 
-let callControl = new AMIActiveConnections('callinker','1234','192.168.1.2',5038);
+let callControl = new AMIActiveConnections(Config.AmiLogin,Config.AmiPassword,Config.AmiAdress,Config.AmiPort);
 
-let webServer = new WebServer('7777');
+let webServer = new WebServer(Config.webPort);
 
 const BaseLinker = require('./implementations/BaseLinker.js');
-let baseLinker = new BaseLinker('1002128-1009562-GVHRM76JKHM5X1KWX8D8WHYKTTINFYFS3KF9ERY7AXUSCJ3FPQ8H8D6SCMROS54N');
+let baseLinker = new BaseLinker(Config.baselinkerApi);
 
 callControl.handler.on("inCall", (first,second)=>{
     webServer.sendThatInCall(first,second);

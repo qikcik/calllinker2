@@ -1,6 +1,7 @@
 let extension = prompt("Podaj numer stanowiska", "");
 let socket = io.connect( window.location.host );
 
+let connectedWith = '';
 
 socket.on( 'connect', () => {
     console.log( 'connected to server' );
@@ -14,7 +15,7 @@ socket.on("logged", (result) => {
 });
 
 socket.on("inCall", (result) => {
-    
+    connectedWith = result;
     document.getElementById("oncall-general-caller").innerHTML = result;
     document.getElementById("oncall-orders").innerHTML = "";
     /*document.getElementById("oncall-orders").innerHTML = "";
@@ -48,6 +49,7 @@ socket.on("orders", (result) => {
 });
 
 socket.on("hangup", (result) => {
+    connectedWith = '';
     document.getElementById("oncall-general-caller").innerHTML = "";
     document.getElementById("oncall-orders").innerHTML = "";
 });
