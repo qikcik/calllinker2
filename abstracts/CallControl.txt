@@ -1,0 +1,9 @@
+eksportuje klase XXXClassControl
+służącą do wykrywania połączeń
+
+- konstruktor przyjmuje parametry w zależności od implementacji
+
+.handler.on {
+    inCall (first,second) -> aktywne połaczenie 2 numerów.
+    hangup (exstension) -> rozłączenie numeru.
+}

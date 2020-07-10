@@ -1,0 +1,5 @@
+client: login(extension)
+serwer: logged(extension) <- accepted <client>login
+
+serwer: inCall(extension)
+server: hangup(extension)

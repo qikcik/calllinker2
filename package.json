@@ -1,0 +1,19 @@
+{
+  "name": "callinker2",
+  "version": "1.0.0",
+  "author": "Dominik Rudnik Qikcik",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "asterisk-ami-client": "^1.1.5",
+    "colors": "^1.4.0",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "socket.io": "^2.3.0"
+  },
+  "license": "ISC",
+  "description": ""
+}
