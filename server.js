@@ -1,4 +1,4 @@
-const Config = require('./config.js');
+const Config = require('./configDocker.js');
 const Logger = require('./utlis/Logger.js');
 
 // ignore uncaughtException
