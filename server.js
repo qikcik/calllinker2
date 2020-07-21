@@ -1,4 +1,4 @@
-const Config = require('./config.js');
+const Config = require('./configDocker.js');
 const Logger = require('./utlis/Logger.js');
 
 // ignore uncaughtException
@@ -36,7 +36,7 @@ webServer.handler.on("logged",extension=>{
 
 webServer.handler.on("inCall",(who,withWho)=>{
     baseLinker.getOrdersByExtension(withWho)
-        .then ( res => { webServer.sendOrders(who,withWho,res) } );
+        .then ( res => { webServer.sendOrders(who,withWho,JSON.parse(res).orders) } );
 });
 
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Callinker - autoupdate!</title>
+    <title>Callinker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,17 +13,18 @@
     <div id="view-oncall" class="view">
         <div id="oncall-general">
             <div class="field">
-                <div class="label">stanowisko:</div> 
-                <div id="oncall-general-extension" class="property"></div>
+                    <div class="label">w trakcie rozmowy:</div>
+                    <div id="oncall-general-caller" class="property"></div>
             </div>
-            <div class="field">
-                <div class="label">numer dzwoniący:</div>
-                <div id="oncall-general-caller" class="property"></div>
+            <div class="layout-right">
+                <div class="field">
+                        <div class="label">twój numer:</div> 
+                        <div id="oncall-general-extension" class="property"></div>
+                </div>
+                <button style="margin-left: 20px;" onclick="logout()"> zmień </button>
             </div>
         </div>
-        <pre>
         <div id="oncall-orders">
-        </pre>
         </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>

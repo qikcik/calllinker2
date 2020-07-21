@@ -1,0 +1,78 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#oncall-general {
+    background-color: #333 ;
+    max-width: 100vw;
+    padding: 10px;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.layout-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+button {
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#oncall-orders {
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    margin: auto;
+}
+
+.oncall-order {
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+}
+
+.oncall-order a , .oncall-order a:link, .oncall-order a:visited{
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.field .label {
+    font-weight: 900;
+    margin-right: 2px;
+}
